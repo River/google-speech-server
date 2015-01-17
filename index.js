@@ -58,7 +58,11 @@ app.post('/', function (req, res) {
   }
 });
 
+app.get('/', function (req, res) {
+  res.end("hello world");
+});
+
 /*Run the server.*/
-app.listen(8080,function(){
+app.listen(80,function(){
   console.log("Working on port 8080");
 });

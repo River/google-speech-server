@@ -46,6 +46,7 @@ app.post('/', function (req, res) {
       }
 
       body = body.replace('{"result":[]}\n','');
+      console.log('response: ' + body);
       res.end(body);
     }));
 

@@ -34,7 +34,7 @@ app.post('/', function (req, res) {
     var uploadFilePath = req.files.upload.path;
 
     var options = {
-      url: 'https://www.google.com/speech-api/v2/recognize?output=json&lang=en-us&key=AIzaSyCuQyKYGK9nXv8SnH1fxmJhoIV65IBrxro',
+      url: 'https://www.google.com/speech-api/v2/recognize?output=json&lang=en-us&key=AIzaSyBNVzWlZz4ASZjwFIUyKnfYCIpD1zuAuUM',
       headers: {
         'Content-Type': 'audio/l16; rate=16000'
       }

@@ -10,16 +10,8 @@ var done = false;
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
-// app.get('/', function(request, response) {
-//   response.send('Hello World!');
-// });
-//
-
 app.use(multer({
   dest: './uploads/',
-  // rename: function (fieldname, filename) {
-  //   return filename+Date.now();
-  // },
   onFileUploadStart: function (file) {
     console.log(file.originalname + ' is starting ...')
   },
@@ -31,6 +23,8 @@ app.use(multer({
 
 app.post('/', function (req, res) {
   if (done == true) {
+    done = false;
+
     var uploadFilePath = req.files.upload.path;
 
     var options = {
@@ -49,18 +43,8 @@ app.post('/', function (req, res) {
       console.log('response: ' + body);
       res.end(body);
     }));
-
   }
 });
-
-app.get('/', function (req, res) {
-  res.end("hello world");
-});
-
-/*Run the server.*/
-// app.listen(80,function(){
-//   console.log("Working on port 8080");
-// });
 
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'));
